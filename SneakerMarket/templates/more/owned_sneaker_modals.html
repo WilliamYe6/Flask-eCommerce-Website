@@ -1,0 +1,46 @@
+<style>
+    .modal-content {
+      background-color: #212121
+    }
+  </style>
+
+  <!-- Sell -->
+  <div class="modal fade" id="Modal-SellConfirm-{{ owned_sneaker.id }}"
+       tabindex="-1"
+       aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="ModalLabel">
+            <!-- -->
+            {{ owned_sneaker.name }}
+          </h5>
+          <button type="button" class="close"
+                  data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true"></span>
+          </button>
+        </div>
+        <div class="modal-body">
+          
+          <form method = "POST">
+            {{ sell_form.hidden_tag() }}
+            <h4 class = "text-center">
+              Are you sure you want to sell the {{ owned_sneaker.name}} size {{ owned_sneaker.size }} for {{ owned_sneaker.price }}$ ?
+            </h4>
+            <h6>
+              By clicking Sell, you will be refunded {{owned_sneaker.price}} for the {{owned_sneaker.name}}.
+            </h6>
+            <br>
+            <input id="sold_sneaker" name="sold_sneaker" type = "hidden", value = "{{owned_sneaker.name}}">
+            {{sell_form.sell(class = "btn btn-outline-success btn-block")}}
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary"
+                  data-dismiss="modal">Close
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  

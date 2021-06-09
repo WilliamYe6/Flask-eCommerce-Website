@@ -1,0 +1,75 @@
+{% extends 'template.html'%}
+
+{% block title %}
+    Shop Sneakers | Sneaker Central MTL
+{% endblock %}
+
+{% block content %}
+
+
+    <div class="row" style = "margin-top:20px; margin-left:20px">
+        <div class="col-8">
+            <h2>Available Sneakers</h2>
+            <p> Purchase sneakers using the button below</p>
+            <br>
+
+            <table class="table table-hover table-dark">
+                <thead>
+                    <tr>
+                        <!-- Your Columns HERE -->
+                        <th scope="col">ID</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Size</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Option</th>
+        
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Your rows inside the table HERE: using For Loop with Jinja syntax -->
+                    {%for sneaker in sneakers %}
+                    {% include 'more/sneaker_modals.html' %}
+                        <tr>
+                            <td>{{ sneaker.id }}</td>
+                            <td>{{ sneaker.name }}</td>
+                            <td>{{ sneaker.size }}</td>
+                            <td>{{ sneaker.price }}$</td>
+                            <td>
+                                <button class = "btn btn-outline btn-info" data-toggle = "modal" data-target = "#Modal-MoreInfo-{{ sneaker.id }}"> Details </button>
+                                <button class = "btn btn-outline btn-success" data-toggle = "modal" data-target = "#Modal-PurchaseConfirm-{{ sneaker.id }}"> Purchase </button>
+                                
+        
+                            </td>
+                        </tr>
+                        
+        
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="col-4">
+            <h2>Owned Sneakers</h2>
+            <p>Sell sneakers using the button below</p>
+            <br>
+            <div class = "row">
+                {% for owned_sneaker in owned_sneakers %}
+                {% include 'more/owned_sneaker_modals.html' %}
+                <div class ="col-md-6">
+                    <div style="margin-bottom: 5px" class="card text-center bg-dark">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ owned_sneakers.name }}</h5>
+                            <button type="button" class="btn btn-outline-danger" style="margin-bottom: 5px"
+                                    data-toggle="modal" data-target="#Modal-SellConfirm-{{ owned_sneaker.id }}">
+                                Sell this Sneaker
+                            </button>
+                            <p class="card-text"><strong>Cost: {{owned_sneakers.price}} $</strong></p>
+                        </div>
+                    </div> 
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+   
+{% endblock %}

@@ -1,0 +1,74 @@
+<style>
+  .modal-content {
+    background-color: #212121
+  }
+</style>
+  
+  <!-- More Info -->
+  <div class="modal fade" id="Modal-MoreInfo-{{ sneaker.id }}"
+       tabindex="-1"
+       aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="ModalLabel">
+            <!-- -->
+            {{ sneaker.name }}
+          </h5>
+          <button type="button" class="close"
+                  data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true"></span>
+          </button>
+        </div>
+        <div class="modal-body">
+          {{ sneaker.description }}
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary"
+                  data-dismiss="modal">Close
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Purchase -->
+  <div class="modal fade" id="Modal-PurchaseConfirm-{{ sneaker.id }}"
+       tabindex="-1"
+       aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="ModalLabel">
+            <!-- -->
+            {{ sneaker.name }}
+          </h5>
+          <button type="button" class="close"
+                  data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true"></span>
+          </button>
+        </div>
+        <div class="modal-body">
+          
+          <form method = "POST">
+            {{ purchase_form.hidden_tag() }}
+            <h4 class = "text-center">
+              Are you sure you want to purchase the {{ sneaker.name}} size {{ sneaker.size }} for {{ sneaker.price }}$ ?
+            </h4>
+            <h6>
+              By clicking Purchase, you will be charged for the {{sneaker.name}}.
+            </h6>
+            <br>
+            <input id="purchased_sneaker" name="purchased_sneaker" type = "hidden", value = "{{sneaker.name}}">
+            {{purchase_form.purchase(class = "btn btn-outline-success btn-block")}}
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary"
+                  data-dismiss="modal">Close
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
