@@ -63,6 +63,7 @@ class Sneaker(db.Model):
         user.balance -=self.price
         if user.balance < 0:
             user.balance = 0
+        db.session.commit()
     # Method that updates user balance and ownership
     def sell(self, user):
         self.owner = None

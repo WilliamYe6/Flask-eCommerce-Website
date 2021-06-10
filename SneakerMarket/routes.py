@@ -88,7 +88,10 @@ def logout():
     flash(f'You have been logged out!', category = 'info')
     return redirect(url_for('homePage')) #returns user to the homepage
 
-
+@app.route('/upcomingDrops')
+@login_required
+def upcomingDrops():
+    return render_template('upcomingDrops.html')
 
 
 
