@@ -16,7 +16,7 @@ This website was built using the Flask web framework allowing the creation of mu
 
  __Requirements__ : Python 3.9.1
 
-1) Create a virtual env and active it 
+1) Create a virtual environment and active it 
   
     * Mac OS/linux  
     $ python3 -m venv /path/to/new/virtual/environment  
@@ -28,10 +28,10 @@ This website was built using the Flask web framework allowing the creation of mu
     $ .\env\Scripts\activate  
     
  
-2) Install all dependencies 
+2) Install all dependencies  
   $ pip install -r requirements.txt
 
-3) Host the website locally 
+3) Host the website locally  
   $ python run.py
 
 
