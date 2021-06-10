@@ -3,6 +3,8 @@
 "Sneaker Central MTL" is an eCommerce Website allowing users to purchase and sell sneakers built using Python, Flask, HTML ,and CSS.  
 
 # Implementation
+
+This website was built using Flask as the web framework. 
 1) talk about flask 
 2) SQLAlchemy and SQLite3 for database storage
 3) HTML template
